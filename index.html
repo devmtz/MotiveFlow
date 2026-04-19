@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotiveFlow| AsianDrive Pro Parts</title>
+    <meta name="description"
+        content="Fournisseur leader de pièces de rechange automobiles en Tunisie. Qualité premium, prix compétitifs et service inégalé.">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- JSON-LD Schema for Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "MotiveFlow",
+        "url": "https://motiveflow.tn",
+        "logo": "https://motiveflow.tn/img/logo.png",
+        "description": "Fournisseur leader de pièces de rechange automobiles en Tunisie",
+        "sameAs": [
+            "https://www.facebook.com/motiveflow",
+            "https://www.instagram.com/motiveflow",
+            "https://www.tiktok.com/@motiveflow"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Service",
+            "telephone": "+216-48-331-142",
+            "email": "contact@motiveflow.com"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "TN",
+            "addressLocality": "Tunis"
+        }
+    }
+    </script>
+    
+    <!-- JSON-LD Schema for Product -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Pièces de Rechange Automobiles",
+        "description": "Pièces de rechange originales et certifiées pour véhicules asiatiques, américains et chinois",
+        "brand": {
+            "@type": "Brand",
+            "name": "MotiveFlow"
+        },
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "TND",
+            "lowPrice": "10",
+            "highPrice": "5000",
+            "offerCount": "20000"
+        }
+    }
+    </script>
+</head>
+
+<body class="dark-mode">
+
+    <!-- Header containing Top Bar and Navigation -->
+    <header class="header" id="header">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="top-bar-contact">
+                    <span><i class="fas fa-phone-alt"></i> +216 48 331 142</span>
+                    <span class="hidden-mobile"><i class="fas fa-phone-alt"></i> +216 26 792 385</span>
+                    <span class="hidden-mobile"><i class="fas fa-phone-alt"></i> +216 51 168 235</span>
+                </div>
+                <div class="top-bar-socials">
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="navbar container">
+            <!-- Modern Professional Logo -->
+            <a href="#hero" class="logo-modern">
+                <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 5L90 25V75L50 95L10 75V25L50 5Z" stroke="var(--primary-color)" stroke-width="6"
+                        fill="rgba(59, 130, 246, 0.1)" />
+                    <path d="M50 25L75 38V62L50 75L25 62V38L50 25Z" fill="var(--primary-color)" />
+                    <circle cx="50" cy="50" r="8" fill="#fff" />
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-title">Motive<strong>Flow</strong></span>
+                    <span class="logo-slogan">Pièces de Rechange</span>
+                </div>
+            </a>
+
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#about" class="nav-link">À Propos</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Marques</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link">Logistique</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Innovation</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Basculer le thème">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home / Hero Section -->
+        <section id="hero" class="hero section">
+            <div class="container hero-container">
+                <div class="hero-content reveal-up">
+                    <p class="hero-subtitle">MotiveFlow</p>
+                    <h1 class="hero-title">Votre Partenaire de Confiance dans <span>L'Excellence Automobile</span></h1>
+                    <p class="hero-description">
+                        Forte d'une expertise de 12 ans, nous sommes un fournisseur leader de pièces de rechange
+                        automobiles en Tunisie. Notre mission : Qualité Premium, Prix Compétitifs, et Service Inégalé.
+                    </p>
+                    
+                    <!-- Search by VIN Input -->
+                    <div class="vin-search-container reveal-up" style="transition-delay: 100ms;">
+                        <div class="vin-search-wrapper">
+                            <i class="fas fa-key"></i>
+                            <input type="text" id="vin-input" class="vin-search-input" placeholder="Rechercher par VIN (numéro de châssis)..." maxlength="17">
+                            <button class="vin-search-btn" aria-label="Rechercher par VIN">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <p class="vin-help-text"><i class="fas fa-info-circle"></i> Exemple: 4T1BF1K62CU123456</p>
+                        
+                        <!-- Skeleton Loading Container -->
+                        <div id="vin-skeleton" class="vin-skeleton hidden">
+                            <div class="skeleton-box skeleton-text"></div>
+                            <div class="skeleton-box skeleton-text short"></div>
+                            <div class="skeleton-box skeleton-progress"></div>
+                            <p class="skeleton-status">Vérification dans la base de données globale...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-cta">
+                        <a href="#skills" class="btn btn-primary"><i class="fas fa-search"></i> Voir le Catalogue</a>
+                        <a href="#contact" class="btn btn-secondary"><i class="fas fa-envelope"></i> Nous Contacter</a>
+                    </div>
+
+                    <div class="hero-stats reveal-up" style="transition-delay: 200ms;">
+                        <div class="stat-item">
+                            <i class="fas fa-cogs"></i>
+                            <span><strong>20 000+</strong> Références</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-truck-fast"></i>
+                            <span><strong>24h</strong> Livraison</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#about" class="scroll-down">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- Brands Carousel Section -->
+        <section id="brands" class="brands-carousel bg-alt">
+            <div class="carousel-wrapper">
+                <div class="carousel-track">
+                    <!-- Original set of images -->
+                    <div class="carousel-slide"><img src="img/brands/byd.png" alt="BYD" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/chery.png" alt="Chery" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/haval.jpeg" alt="Haval" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/logo ford(1).png" alt="Ford" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/logo mz (1).png" alt="Mazda" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/logo is (1).png" alt="Isuzu" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/mg.jpeg" alt="MG" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/logo hy1.png" alt="hyundai" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/logo kia.png" alt="kia" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/logo sz1.png" alt="suzuki" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/logo nis.png" alt="Nissan" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/logo ty (1).png" alt="TOYOTA" loading="lazy"></div>
+                    <!-- Duplicatd set of images for seamless infinite scrolling -->
+                    <div class="carousel-slide"><img src="img/brands/byd.png" alt="BYD" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/chery.png" alt="Chery" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/haval.jpeg" alt="Haval" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/logo ford (1).png" alt="Ford" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/logo mz (1).png" alt="Mazda" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/logo is (1).png" alt="isuzu" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/mg.jpeg" alt="MG" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/logo hy1.png" alt="hyundai" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/logo kia.png" alt="kia" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/logo sz1.png" alt="suzuki" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/logo nis.png" alt="Nissan" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/logo ty (1).png" alt="TOYOTA" loading="lazy"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Qui sommes-nous ?</h2>
+                    <div class="title-underline"></div>
+                </div>
+                <div class="about-content grid-2">
+                    <div class="about-image reveal-left">
+                        <img src="img/images/fonAr (1).png" alt="Véhicules Asiatiques" class="about-feature-img" loading="lazy">
+                    </div>
+                    <div class="about-text reveal-right">
+                        <h3 class="about-heading">Forte d'une expertise de 12 ans</h3>
+                        <p>
+                            Notre société s’est imposée comme le partenaire de confiance pour les propriétaires de
+                            véhicules Asiatiques, Américains et Chinois en Tunisie.
+                        </p>
+                        <p>
+                            <strong>Notre crédo est simple :</strong> offrir la meilleure qualité au meilleur prix,
+                            accompagnée d'un service client irréprochable. Nous gérons un stock de plus de 20 000
+                            références combinant pièces d'origine (OEM) et adaptables certifiées.
+                        </p>
+                        <p>
+                            Nous excellons particulièrement dans les pièces moteur, l’entretien, la suspension et les
+                            accessoires, tout en assurant une disponibilité sur la carrosserie et l’électricité.
+                        </p>
+                        <ul class="about-highlights">
+                            <li><i class="fas fa-check-circle"></i> Compatibilité garantie à 100% via VIN</li>
+                            <li><i class="fas fa-check-circle"></i> Pièces d'origine (OEM) et adaptables certifiées</li>
+                            <li><i class="fas fa-check-circle"></i> Service client et transparence totale</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Brand/Skills Section -->
+        <section id="skills" class="skills section bg-alt">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Notre Spécialité</h2>
+                    <p class="section-subtitle">L’Excellence dans les marques Asiatiques et des constructeurs émergents
+                    </p>
+                    <div class="title-underline"></div>
+                </div>
+
+                <!-- Quick-Access Category Filter -->
+                <div class="chip-filter-container reveal-up">
+                    <ul class="chip-filter" id="category-filter">
+                        <li class="chip active" data-filter="all">Tout</li>
+                        <li class="chip" data-filter="brakes">Freinage</li>
+                        <li class="chip" data-filter="engine">Moteur</li>
+                        <li class="chip" data-filter="suspension">Suspension</li>
+                        <li class="chip" data-filter="electrical">Électricité</li>
+                        <li class="chip" data-filter="filters">Filtres</li>
+                    </ul>
+                </div>
+
+                <!-- Compatibility Badge -->
+                <div id="compatibility-badge" class="compatibility-badge hidden reveal-up">
+                    <i class="fas fa-check-circle"></i> Compatible avec votre Véhicule: <span id="compat-vin"></span>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Category 1 -->
+                    <div class="skill-category reveal-up">
+                        <h3 class="skill-category-title"><i class="fas fa-yin-yang"></i> Coréennes & Japonaises</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Hyundai</span>
+                            <span class="skill-tag">Kia</span>
+                            <span class="skill-tag">Toyota</span>
+                            <span class="skill-tag">Nissan</span>
+                            <span class="skill-tag">Mitsubishi</span>
+                            <span class="skill-tag">Isuzu</span>
+                            <span class="skill-tag">Suzuki</span>
+                            <span class="skill-tag">Mazda</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 2 -->
+                    <div class="skill-category reveal-up" style="transition-delay: 100ms;">
+                        <h3 class="skill-category-title"><i class="fas fa-globe"></i> Américaines & Chinoises</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Ford</span>
+                            <span class="skill-tag">Chery</span>
+                            <span class="skill-tag">Haval</span>
+                            <span class="skill-tag">Geely</span>
+                            <span class="skill-tag">MG</span>
+                            <span class="skill-tag">Dongfeng</span>
+                            <span class="skill-tag">BYD</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 3 -->
+                    <div class="skill-category reveal-up" style="transition-delay: 200ms;">
+                        <h3 class="skill-category-title"><i class="fas fa-wrench"></i> Composants Essentiels</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Pièces Moteur</span>
+                            <span class="skill-tag">Suspension</span>
+                            <span class="skill-tag">Kits d'Entretien</span>
+                            <span class="skill-tag">Accessoires</span>
+                            <span class="skill-tag">Carrosserie</span>
+                            <span class="skill-tag">Électricité</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hyundai Original Parts Section -->
+        <section id="hyundai-promo" class="hyundai-promo section" style="overflow: hidden; padding-bottom: 50px;">
+            <div class="container">
+                <div class="grid-2 align-center">
+                    <div class="hyundai-content reveal-left">
+                        <div class="section-header" style="text-align: left; margin-bottom: 24px;">
+                            <h2 class="section-title">Pièces d'Origine <span style="color: var(--primary-color);">Hyundai</span></h2>
+                            <div class="title-underline" style="margin: 0; width: 80px;"></div>
+                        </div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-primary); font-weight: 600;">L'Excellence et la Fiabilité d'Origine</h3>
+                        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px; color: var(--text-secondary);">
+                            Garantissez une performance optimale et prolongez la durée de vie de votre véhicule avec nos pièces de rechange <strong>certifiées d'origine Hyundai</strong>. 
+                            Issues directement des usines du constructeur, elles assurent une sécurité absolue, un ajustement parfait et une tranquillité d'esprit à chaque kilomètre.
+                        </p>
+                        <ul class="about-highlights" style="margin-bottom: 32px; margin-top: 24px;">
+                            <li><i class="fas fa-shield-alt"></i> Sécurité constructeur garantie à 100%</li>
+                            <li><i class="fas fa-cogs"></i> Performance et ajustement parfaits</li>
+                            <li><i class="fas fa-tachometer-alt"></i> Durabilité maximale de votre moteur</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary btn-hover-effect" style="margin-top: 10px;">
+                            More origine Parts <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="reveal-right" style="position: relative; display: flex; justify-content: center; align-items: center;">
+                        <div style="position: absolute; width: 100%; height: 100%; max-width: 450px; background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(0,0,0,0) 70%); z-index: 0; border-radius: 50%;"></div>
+                        <img src="img/images/Hyundaior.webp" alt="Pièces d'origine Hyundai" class="floating-img" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kia Original Parts Section -->
+        <section id="kia-promo" class="kia-promo section bg-alt" style="overflow: hidden; padding-top: 50px; padding-bottom: 50px;">
+            <div class="container">
+                <div class="grid-2 align-center">
+                    <div class="reveal-left" style="position: relative; display: flex; justify-content: center; align-items: center;">
+                        <div style="position: absolute; width: 100%; height: 100%; max-width: 450px; background: radial-gradient(circle, rgba(187,22,43,0.15) 0%, rgba(0,0,0,0) 70%); z-index: 0; border-radius: 50%;"></div>
+                        <img src="img/images/kiaor.png" alt="Pièces d'origine Kia" class="floating-img" loading="lazy">
+                    </div>
+                    <div class="kia-content reveal-right">
+                        <div class="section-header" style="text-align: left; margin-bottom: 24px;">
+                            <h2 class="section-title">Pièces d'Origine <span style="color: #bb162b;">Kia</span></h2>
+                            <div class="title-underline" style="margin: 0; width: 80px; background-color: #bb162b;"></div>
+                        </div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-primary); font-weight: 600;">L'Innovation au Service de la Qualité</h3>
+                        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px; color: var(--text-secondary);">
+                            Découvrez la gamme complète de pièces de rechange <strong>certifiées d'origine Kia</strong>. 
+                            Conçues pour préserver la dynamique et le confort originels de votre véhicule, ces pièces 
+                            vous offrent une fiabilité incontestable et respectent les normes les plus strictes.
+                        </p>
+                        <ul class="about-highlights" style="margin-bottom: 32px; margin-top: 24px;">
+                            <li><i class="fas fa-shield-alt" style="color: #bb162b;"></i> Garantie de qualité certifiée</li>
+                            <li><i class="fas fa-cogs" style="color: #bb162b;"></i> Intégration transparente et sûre</li>
+                            <li><i class="fas fa-tachometer-alt" style="color: #bb162b;"></i> Longévité exceptionnelle</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary btn-hover-effect" style="margin-top: 10px; background-color: #bb162b; border-color: #bb162b;">
+                            More origine Parts <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Toyota Original Parts Section -->
+        <section id="toyota-promo" class="toyota-promo section" style="overflow: hidden; padding-top: 50px;">
+            <div class="container">
+                <div class="grid-2 align-center">
+                    <div class="toyota-content reveal-left">
+                        <div class="section-header" style="text-align: left; margin-bottom: 24px;">
+                            <h2 class="section-title">Pièces d'Origine <span style="color: #eb0a1e;">Toyota</span></h2>
+                            <div class="title-underline" style="margin: 0; width: 80px; background-color: #eb0a1e;"></div>
+                        </div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-primary); font-weight: 600;">Toujours Mieux, Toujours Sûr</h3>
+                        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px; color: var(--text-secondary);">
+                            Investissez dans la durabilité légendaire de votre voiture avec les pièces <strong>d'origine Toyota</strong>. 
+                            Bénéficiez de l'ingénierie avancée japonaise qui garantit que chaque composant résiste à l'épreuve du temps 
+                            et maintient la valeur de revente de votre véhicule.
+                        </p>
+                        <ul class="about-highlights" style="margin-bottom: 32px; margin-top: 24px;">
+                            <li><i class="fas fa-shield-alt" style="color: #eb0a1e;"></i> Protection de la valeur du véhicule</li>
+                            <li><i class="fas fa-cogs" style="color: #eb0a1e;"></i> Standards d'ingénierie japonais</li>
+                            <li><i class="fas fa-tachometer-alt" style="color: #eb0a1e;"></i> Résistance à l'épreuve du temps</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary btn-hover-effect" style="margin-top: 10px; background-color: #eb0a1e; border-color: #eb0a1e;">
+                            More origine Parts <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="reveal-right" style="position: relative; display: flex; justify-content: center; align-items: center;">
+                        <div style="position: absolute; width: 100%; height: 100%; max-width: 450px; background: radial-gradient(circle, rgba(235,10,30,0.15) 0%, rgba(0,0,0,0) 70%); z-index: 0; border-radius: 50%;"></div>
+                        <img src="img/images/toyotaor.jpg" alt="Pièces d'origine Toyota" class="floating-img" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services section">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Nos Services</h2>
+                    <p class="section-subtitle">Nous ne vendons pas seulement des pièces, nous offrons une expertise
+                        globale.</p>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card reveal-up">
+                        <span class="badge in-stock">En Stock</span>
+                        <div class="service-icon"><i class="fas fa-microchip"></i></div>
+                        <h3 class="service-title">Précision par Châssis (VIN)</h3>
+                        <p class="service-desc">Nous utilisons les numéros d'identification (VIN) pour garantir une
+                            compatibilité de 100%, évitant toute erreur lors de l'achat.</p>
+                    </div>
+                    <div class="service-card reveal-up" style="transition-delay: 100ms;">
+                        <span class="badge in-stock">Disponible</span>
+                        <div class="service-icon"><i class="fas fa-headset"></i></div>
+                        <h3 class="service-title">Support & Diagnostic</h3>
+                        <p class="service-desc">Nos experts fournissent des conseils en matière de diagnostic de panne
+                            et expliquent techniquement chaque article acheté.</p>
+                    </div>
+                    <div class="service-card reveal-up" style="transition-delay: 200ms;">
+                        <span class="badge premium">Premium</span>
+                        <div class="service-icon"><i class="fas fa-boxes-packing"></i></div>
+                        <h3 class="service-title">Packs Entretien Exclusifs</h3>
+                        <p class="service-desc">Offres spéciales sur des packs "Full Service" (Vidange, Chaîne,
+                            Avant-train) conçus pour maximiser la longévité de votre moteur.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience / Logistics Section -->
+        <section id="experience" class="experience section bg-alt">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Logistique & Proximité</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item reveal-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Excellence Logistique</span>
+                            <h3 class="timeline-title">Livraison Rapide et Fiable</h3>
+                            <h4 class="timeline-company">Tunisie & Grand Tunis</h4>
+                            <ul class="timeline-list">
+                                <li>Livraison garantie en 24h sur toute la Tunisie.</li>
+                                <li>Livraison Express immédiate sur le Grand Tunis.</li>
+                                <li><strong>Offre Spéciale :</strong> Livraison gratuite pour toute commande dépassant
+                                    100 DT.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">B2B & B2C</span>
+                            <h3 class="timeline-title">Un Partenaire pour Tous</h3>
+                            <h4 class="timeline-company">Professionnels et Particuliers</h4>
+                            <ul class="timeline-list">
+                                <li>Nous accompagnons au quotidien des taxis, agences de transport et particuliers.</li>
+                                <li>Disponibilité immédiate des pièces pour minimiser le temps d'immobilisation.</li>
+                                <li>Une garantie après-vente réelle et une transparence totale des prix.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects / Innovation Section -->
+        <section id="projects" class="projects section">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">L'Innovation Digitale</h2>
+                    <p class="section-subtitle">Préparation du lancement de la plus grande plateforme automobile de
+                        Tunisie.</p>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card reveal-up">
+                        <div class="project-image">
+                            <div class="proj-img-placeholder"><i class="fas fa-laptop-code"></i></div>
+                            <div class="project-overlay">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Plateforme Catalogue Intelligent</h3>
+                            <p class="project-desc">Un outil en ligne permettant d'introduire le numéro de châssis pour
+                                identifier instantanément les pièces adaptées et commander en un clic avec 100% de
+                                fiabilité.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal-up" style="transition-delay: 100ms;">
+                        <div class="project-image">
+                            <div class="proj-img-placeholder"><i class="fas fa-oil-can"></i></div>
+                            <div class="project-overlay">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Le Coin des Passionnés (Liqui Moly)</h3>
+                            <p class="project-desc">Un espace dédié offrant les meilleurs prix du marché sur les
+                                lubrifiants et les additifs premium Liqui Moly, pour les passionnés exigeants.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal-up" style="transition-delay: 200ms;">
+                        <div class="project-image">
+                            <div class="proj-img-placeholder"><i class="fas fa-tools"></i></div>
+                            <div class="project-overlay">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Tutoriels de Diagnostic</h3>
+                            <p class="project-desc">Un accès intégré à des contenus vidéos et tutoriels pour vous guider
+                                dans le diagnostic de vos pannes et l'entretien de votre véhicule.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Testimonials Section -->
+        <section id="testimonials" class="testimonials section bg-alt">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Ce que disent nos clients</h2>
+                    <div class="title-underline"></div>
+                </div>
+                <div class="testimonial-slider-wrapper">
+                    <div class="testimonial-track" id="testimonial-track">
+                        <div class="testimonial-card glass-card">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <p class="testimonial-text">"La vérification par VIN m'a permis d'éviter une erreur coûteuse sur ma boîte de vitesses. Service exceptionnel !"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
+                                <div>
+                                    <h4>Ahmed S.</h4>
+                                    <span>Chauffeur de Taxi</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card glass-card">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <p class="testimonial-text">"Qualité premium pour les pièces Hyundai. Livraison super rapide sur Tunis. Je recommande vivement MotiveFlow."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
+                                <div>
+                                    <h4>Sami L.</h4>
+                                    <span>Propriétaire Garage</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card glass-card">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <p class="testimonial-text">"Enfin une plateforme moderne et fiable pour trouver des pièces d'origine Toyota sans se déplacer."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
+                                <div>
+                                    <h4>Yassine M.</h4>
+                                    <span>Particulier</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Objective / Vision Prominent Banner -->
+        <section id="future" class="vision-banner reveal-up">
+            <div class="container">
+                <div class="vision-content">
+                    <i class="fas fa-rocket vision-icon"></i>
+                    <h2>Notre Vision</h2>
+                    <p class="vision-statement">
+                        "Devenir l'écosystème digital incontournable de la distribution de pièces automobiles en
+                        Tunisie, en assurant que la bonne pièce parvienne à chaque conducteur, avec rapidité et
+                        certitude."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Partners Section -->
+        <section id="partners" class="partners section bg-alt">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Nos Partenaires Globaux</h2>
+                    <p class="section-subtitle">Les meilleures marques de composants automobiles partenaires</p>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="partners-grid">
+                    <div class="partner-card reveal-up">
+                        <div class="partner-logo"><i class="fas fa-cogs"></i></div>
+                        <h3>Aisin</h3>
+                        <p class="badge in-stock">Premium Partner</p>
+                    </div>
+                    <div class="partner-card reveal-up" style="transition-delay: 100ms;">
+                        <div class="partner-logo"><i class="fas fa-fan"></i></div>
+                        <h3>Luk</h3>
+                        <p class="badge in-stock">Premium Partner</p>
+                    </div>
+                    <div class="partner-card reveal-up" style="transition-delay: 200ms;">
+                        <div class="partner-logo"><i class="fas fa-bolt"></i></div>
+                        <h3>Valeo</h3>
+                        <p class="badge in-stock">Premium Partner</p>
+                    </div>
+                    <div class="partner-card reveal-up" style="transition-delay: 300ms;">
+                        <div class="partner-logo"><i class="fas fa-ring"></i></div>
+                        <h3>Exedy</h3>
+                        <p class="badge in-stock">Premium Partner</p>
+                    </div>
+                    <div class="partner-card reveal-up" style="transition-delay: 400ms;">
+                        <div class="partner-logo"><i class="fas fa-spring"></i></div>
+                        <h3>KYB</h3>
+                        <p class="badge in-stock">Premium Partner</p>
+                    </div>
+                    <div class="partner-card reveal-up" style="transition-delay: 500ms;">
+                        <div class="partner-logo"><i class="fas fa-oil-can"></i></div>
+                        <h3>Liqui Moly</h3>
+                        <p class="badge premium">Qualité Supérieure</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Contact & Localisation</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="contact-wrapper grid-2">
+                    <div class="contact-info reveal-left">
+                        <h3 class="contact-heading">MotiveFlow</h3>
+                        <p class="contact-text">Nous sommes prêts à répondre à vos besoins. Appelez-nous ou envoyez un
+                            message via nos réseaux pour des conseils ou commandes.</p>
+
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="icon"><i class="fas fa-phone"></i></div>
+                                <div>
+                                    <h4>Téléphone</h4>
+                                    <p>+216 48 331 142</p>
+                                    <p>+216 26 792 385</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="icon"><i class="fas fa-envelope"></i></div>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>contact@motiveflow.com</p>
+                                </div>
+                            </div>
+
+                        <div class="social-links">
+                            <a href="#" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="#" class="social-icon" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container reveal-right">
+                        <form class="contact-form" onsubmit="event.preventDefault();">
+                            <div class="form-group">
+                                <label for="name">Nom / Voiture</label>
+                                <input type="text" id="name" class="form-control" placeholder="Votre nom ou société"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="form-control" placeholder="Votre Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Châssis (VIN) / Sujet</label>
+                                <input type="text" id="subject" class="form-control"
+                                    placeholder="Numéro de châssis ou sujet" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" class="form-control" rows="5"
+                                    placeholder="Votre message ou liste de pièces..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary submit-btn">
+                                Envoyer <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Leaflet Map Integration -->
+                <div class="map-container reveal-up">
+                    <div id="map" class="styled-map glass-card"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#hero" class="logo-modern">
+                    <svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 5L90 25V75L50 95L10 75V25L50 5Z" stroke="var(--primary-color)" stroke-width="6"
+                            fill="transparent" />
+                        <path d="M50 25L75 38V62L50 75L25 62V38L50 25Z" fill="var(--primary-color)" />
+                    </svg>
+                    <div class="logo-text">
+                        <span class="logo-title" style="font-size: 1.25rem;">Motive<strong>Flow</strong></span>
+                    </div>
+                </a>
+                <p>Qualité Premium, Prix Compétitifs, Service Inégalé.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#hero" class="back-to-top circular-progress" aria-label="Retour en haut">
+                    <svg class="progress-ring" width="44" height="44">
+                        <circle class="progress-ring__circle" stroke="var(--primary-color)" stroke-width="4" fill="transparent" r="18" cx="22" cy="22"/>
+                    </svg>
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> AB_MTz. Tous Droits Réservés.</p>
+        </div>
+    </footer>
+
+    <a href="#" class="whatsapp-floating-btn" id="whatsapp-btn" aria-label="Contactez-nous sur WhatsApp" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Contactez-nous</span>
+    </a>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
