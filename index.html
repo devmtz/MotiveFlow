@@ -15,10 +15,13 @@
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Supabase JS Client (CDN) — must come BEFORE supabase.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-    
+
     <!-- JSON-LD Schema for Organization -->
     <script type="application/ld+json">
     {
@@ -46,7 +49,7 @@
         }
     }
     </script>
-    
+
     <!-- JSON-LD Schema for Product -->
     <script type="application/ld+json">
     {
@@ -139,18 +142,19 @@
                         Forte d'une expertise de 12 ans, nous sommes un fournisseur leader de pièces de rechange
                         automobiles en Tunisie. Notre mission : Qualité Premium, Prix Compétitifs, et Service Inégalé.
                     </p>
-                    
+
                     <!-- Search by VIN Input -->
                     <div class="vin-search-container reveal-up" style="transition-delay: 100ms;">
                         <div class="vin-search-wrapper">
                             <i class="fas fa-key"></i>
-                            <input type="text" id="vin-input" class="vin-search-input" placeholder="Rechercher par VIN (numéro de châssis)..." maxlength="17">
+                            <input type="text" id="vin-input" class="vin-search-input"
+                                placeholder="Rechercher par VIN (numéro de châssis)..." maxlength="17">
                             <button class="vin-search-btn" aria-label="Rechercher par VIN">
                                 <i class="fas fa-arrow-right"></i>
                             </button>
                         </div>
                         <p class="vin-help-text"><i class="fas fa-info-circle"></i> Exemple: 4T1BF1K62CU123456</p>
-                        
+
                         <!-- Skeleton Loading Container -->
                         <div id="vin-skeleton" class="vin-skeleton hidden">
                             <div class="skeleton-box skeleton-text"></div>
@@ -159,7 +163,7 @@
                             <p class="skeleton-status">Vérification dans la base de données globale...</p>
                         </div>
                     </div>
-                    
+
                     <div class="hero-cta">
                         <a href="#skills" class="btn btn-primary"><i class="fas fa-search"></i> Voir le Catalogue</a>
                         <a href="#contact" class="btn btn-secondary"><i class="fas fa-envelope"></i> Nous Contacter</a>
@@ -187,31 +191,35 @@
             <div class="carousel-wrapper">
                 <div class="carousel-track">
                     <!-- Original set of images -->
+                    <!-- ✅ All filenames: lowercase + hyphens only (no spaces, no parentheses) -->
+                    <!-- Run the rename commands in seed.sql (IMAGE URL REFERENCE section) first -->
                     <div class="carousel-slide"><img src="img/brands/byd.png" alt="BYD" loading="lazy"></div>
                     <div class="carousel-slide"><img src="img/brands/chery.png" alt="Chery" loading="lazy"></div>
                     <div class="carousel-slide"><img src="img/brands/haval.jpeg" alt="Haval" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="img/brands/logo ford(1).png" alt="Ford" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="img/brands/logo mz (1).png" alt="Mazda" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="img/brands/logo is (1).png" alt="Isuzu" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/ford-logo.png" alt="Ford" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/mazda-logo.png" alt="Mazda" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/isuzu-logo.png" alt="Isuzu" loading="lazy"></div>
                     <div class="carousel-slide"><img src="img/brands/mg.jpeg" alt="MG" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="img/brands/logo hy1.png" alt="hyundai" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="img/brands/logo kia.png" alt="kia" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="img/brands/logo sz1.png" alt="suzuki" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="img/brands/logo nis.png" alt="Nissan" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="img/brands/logo ty (1).png" alt="TOYOTA" loading="lazy"></div>
-                    <!-- Duplicatd set of images for seamless infinite scrolling -->
+                    <div class="carousel-slide"><img src="img/brands/hyundai-logo.png" alt="Hyundai" loading="lazy">
+                    </div>
+                    <div class="carousel-slide"><img src="img/brands/kia-logo.png" alt="Kia" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/suzuki-logo.png" alt="Suzuki" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/nissan-logo.png" alt="Nissan" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/toyota-logo.png" alt="Toyota" loading="lazy"></div>
+                    <!-- Duplicated set of images for seamless infinite scrolling -->
                     <div class="carousel-slide"><img src="img/brands/byd.png" alt="BYD" loading="lazy"></div>
                     <div class="carousel-slide"><img src="img/brands/chery.png" alt="Chery" loading="lazy"></div>
                     <div class="carousel-slide"><img src="img/brands/haval.jpeg" alt="Haval" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="img/brands/logo ford (1).png" alt="Ford" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="img/brands/logo mz (1).png" alt="Mazda" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="img/brands/logo is (1).png" alt="isuzu" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/ford-logo.png" alt="Ford" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/mazda-logo.png" alt="Mazda" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/isuzu-logo.png" alt="Isuzu" loading="lazy"></div>
                     <div class="carousel-slide"><img src="img/brands/mg.jpeg" alt="MG" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="img/brands/logo hy1.png" alt="hyundai" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="img/brands/logo kia.png" alt="kia" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="img/brands/logo sz1.png" alt="suzuki" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="img/brands/logo nis.png" alt="Nissan" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="img/brands/logo ty (1).png" alt="TOYOTA" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/hyundai-logo.png" alt="Hyundai" loading="lazy">
+                    </div>
+                    <div class="carousel-slide"><img src="img/brands/kia-logo.png" alt="Kia" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/suzuki-logo.png" alt="Suzuki" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/nissan-logo.png" alt="Nissan" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="img/brands/toyota-logo.png" alt="Toyota" loading="lazy"></div>
                 </div>
             </div>
         </section>
@@ -225,7 +233,8 @@
                 </div>
                 <div class="about-content grid-2">
                     <div class="about-image reveal-left">
-                        <img src="img/images/fonAr (1).png" alt="Véhicules Asiatiques" class="about-feature-img" loading="lazy">
+                        <img src="img/images/fonAr (1).png" alt="Véhicules Asiatiques" class="about-feature-img"
+                            loading="lazy">
                     </div>
                     <div class="about-text reveal-right">
                         <h3 class="about-heading">Forte d'une expertise de 12 ans</h3>
@@ -331,13 +340,19 @@
                 <div class="grid-2 align-center">
                     <div class="hyundai-content reveal-left">
                         <div class="section-header" style="text-align: left; margin-bottom: 24px;">
-                            <h2 class="section-title">Pièces d'Origine <span style="color: var(--primary-color);">Hyundai</span></h2>
+                            <h2 class="section-title">Pièces d'Origine <span
+                                    style="color: var(--primary-color);">Hyundai</span></h2>
                             <div class="title-underline" style="margin: 0; width: 80px;"></div>
                         </div>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-primary); font-weight: 600;">L'Excellence et la Fiabilité d'Origine</h3>
-                        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px; color: var(--text-secondary);">
-                            Garantissez une performance optimale et prolongez la durée de vie de votre véhicule avec nos pièces de rechange <strong>certifiées d'origine Hyundai</strong>. 
-                            Issues directement des usines du constructeur, elles assurent une sécurité absolue, un ajustement parfait et une tranquillité d'esprit à chaque kilomètre.
+                        <h3
+                            style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-primary); font-weight: 600;">
+                            L'Excellence et la Fiabilité d'Origine</h3>
+                        <p
+                            style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px; color: var(--text-secondary);">
+                            Garantissez une performance optimale et prolongez la durée de vie de votre véhicule avec nos
+                            pièces de rechange <strong>certifiées d'origine Hyundai</strong>.
+                            Issues directement des usines du constructeur, elles assurent une sécurité absolue, un
+                            ajustement parfait et une tranquillité d'esprit à chaque kilomètre.
                         </p>
                         <ul class="about-highlights" style="margin-bottom: 32px; margin-top: 24px;">
                             <li><i class="fas fa-shield-alt"></i> Sécurité constructeur garantie à 100%</li>
@@ -348,39 +363,55 @@
                             More origine Parts <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                    <div class="reveal-right" style="position: relative; display: flex; justify-content: center; align-items: center;">
-                        <div style="position: absolute; width: 100%; height: 100%; max-width: 450px; background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(0,0,0,0) 70%); z-index: 0; border-radius: 50%;"></div>
-                        <img src="img/images/Hyundaior.webp" alt="Pièces d'origine Hyundai" class="floating-img" loading="lazy">
+                    <div class="reveal-right"
+                        style="position: relative; display: flex; justify-content: center; align-items: center;">
+                        <div
+                            style="position: absolute; width: 100%; height: 100%; max-width: 450px; background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(0,0,0,0) 70%); z-index: 0; border-radius: 50%;">
+                        </div>
+                        <img src="img/images/Hyundaior.webp" alt="Pièces d'origine Hyundai" class="floating-img"
+                            loading="lazy">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Kia Original Parts Section -->
-        <section id="kia-promo" class="kia-promo section bg-alt" style="overflow: hidden; padding-top: 50px; padding-bottom: 50px;">
+        <section id="kia-promo" class="kia-promo section bg-alt"
+            style="overflow: hidden; padding-top: 50px; padding-bottom: 50px;">
             <div class="container">
                 <div class="grid-2 align-center">
-                    <div class="reveal-left" style="position: relative; display: flex; justify-content: center; align-items: center;">
-                        <div style="position: absolute; width: 100%; height: 100%; max-width: 450px; background: radial-gradient(circle, rgba(187,22,43,0.15) 0%, rgba(0,0,0,0) 70%); z-index: 0; border-radius: 50%;"></div>
+                    <div class="reveal-left"
+                        style="position: relative; display: flex; justify-content: center; align-items: center;">
+                        <div
+                            style="position: absolute; width: 100%; height: 100%; max-width: 450px; background: radial-gradient(circle, rgba(187,22,43,0.15) 0%, rgba(0,0,0,0) 70%); z-index: 0; border-radius: 50%;">
+                        </div>
                         <img src="img/images/kiaor.png" alt="Pièces d'origine Kia" class="floating-img" loading="lazy">
                     </div>
                     <div class="kia-content reveal-right">
                         <div class="section-header" style="text-align: left; margin-bottom: 24px;">
                             <h2 class="section-title">Pièces d'Origine <span style="color: #bb162b;">Kia</span></h2>
-                            <div class="title-underline" style="margin: 0; width: 80px; background-color: #bb162b;"></div>
+                            <div class="title-underline" style="margin: 0; width: 80px; background-color: #bb162b;">
+                            </div>
                         </div>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-primary); font-weight: 600;">L'Innovation au Service de la Qualité</h3>
-                        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px; color: var(--text-secondary);">
-                            Découvrez la gamme complète de pièces de rechange <strong>certifiées d'origine Kia</strong>. 
-                            Conçues pour préserver la dynamique et le confort originels de votre véhicule, ces pièces 
+                        <h3
+                            style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-primary); font-weight: 600;">
+                            L'Innovation au Service de la Qualité</h3>
+                        <p
+                            style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px; color: var(--text-secondary);">
+                            Découvrez la gamme complète de pièces de rechange <strong>certifiées d'origine Kia</strong>.
+                            Conçues pour préserver la dynamique et le confort originels de votre véhicule, ces pièces
                             vous offrent une fiabilité incontestable et respectent les normes les plus strictes.
                         </p>
                         <ul class="about-highlights" style="margin-bottom: 32px; margin-top: 24px;">
-                            <li><i class="fas fa-shield-alt" style="color: #bb162b;"></i> Garantie de qualité certifiée</li>
-                            <li><i class="fas fa-cogs" style="color: #bb162b;"></i> Intégration transparente et sûre</li>
-                            <li><i class="fas fa-tachometer-alt" style="color: #bb162b;"></i> Longévité exceptionnelle</li>
+                            <li><i class="fas fa-shield-alt" style="color: #bb162b;"></i> Garantie de qualité certifiée
+                            </li>
+                            <li><i class="fas fa-cogs" style="color: #bb162b;"></i> Intégration transparente et sûre
+                            </li>
+                            <li><i class="fas fa-tachometer-alt" style="color: #bb162b;"></i> Longévité exceptionnelle
+                            </li>
                         </ul>
-                        <a href="#contact" class="btn btn-primary btn-hover-effect" style="margin-top: 10px; background-color: #bb162b; border-color: #bb162b;">
+                        <a href="#contact" class="btn btn-primary btn-hover-effect"
+                            style="margin-top: 10px; background-color: #bb162b; border-color: #bb162b;">
                             More origine Parts <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -395,26 +426,39 @@
                     <div class="toyota-content reveal-left">
                         <div class="section-header" style="text-align: left; margin-bottom: 24px;">
                             <h2 class="section-title">Pièces d'Origine <span style="color: #eb0a1e;">Toyota</span></h2>
-                            <div class="title-underline" style="margin: 0; width: 80px; background-color: #eb0a1e;"></div>
+                            <div class="title-underline" style="margin: 0; width: 80px; background-color: #eb0a1e;">
+                            </div>
                         </div>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-primary); font-weight: 600;">Toujours Mieux, Toujours Sûr</h3>
-                        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px; color: var(--text-secondary);">
-                            Investissez dans la durabilité légendaire de votre voiture avec les pièces <strong>d'origine Toyota</strong>. 
-                            Bénéficiez de l'ingénierie avancée japonaise qui garantit que chaque composant résiste à l'épreuve du temps 
+                        <h3
+                            style="font-size: 1.5rem; margin-bottom: 16px; color: var(--text-primary); font-weight: 600;">
+                            Toujours Mieux, Toujours Sûr</h3>
+                        <p
+                            style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px; color: var(--text-secondary);">
+                            Investissez dans la durabilité légendaire de votre voiture avec les pièces <strong>d'origine
+                                Toyota</strong>.
+                            Bénéficiez de l'ingénierie avancée japonaise qui garantit que chaque composant résiste à
+                            l'épreuve du temps
                             et maintient la valeur de revente de votre véhicule.
                         </p>
                         <ul class="about-highlights" style="margin-bottom: 32px; margin-top: 24px;">
-                            <li><i class="fas fa-shield-alt" style="color: #eb0a1e;"></i> Protection de la valeur du véhicule</li>
+                            <li><i class="fas fa-shield-alt" style="color: #eb0a1e;"></i> Protection de la valeur du
+                                véhicule</li>
                             <li><i class="fas fa-cogs" style="color: #eb0a1e;"></i> Standards d'ingénierie japonais</li>
-                            <li><i class="fas fa-tachometer-alt" style="color: #eb0a1e;"></i> Résistance à l'épreuve du temps</li>
+                            <li><i class="fas fa-tachometer-alt" style="color: #eb0a1e;"></i> Résistance à l'épreuve du
+                                temps</li>
                         </ul>
-                        <a href="#contact" class="btn btn-primary btn-hover-effect" style="margin-top: 10px; background-color: #eb0a1e; border-color: #eb0a1e;">
+                        <a href="#contact" class="btn btn-primary btn-hover-effect"
+                            style="margin-top: 10px; background-color: #eb0a1e; border-color: #eb0a1e;">
                             More origine Parts <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
-                    <div class="reveal-right" style="position: relative; display: flex; justify-content: center; align-items: center;">
-                        <div style="position: absolute; width: 100%; height: 100%; max-width: 450px; background: radial-gradient(circle, rgba(235,10,30,0.15) 0%, rgba(0,0,0,0) 70%); z-index: 0; border-radius: 50%;"></div>
-                        <img src="img/images/toyotaor.jpg" alt="Pièces d'origine Toyota" class="floating-img" loading="lazy">
+                    <div class="reveal-right"
+                        style="position: relative; display: flex; justify-content: center; align-items: center;">
+                        <div
+                            style="position: absolute; width: 100%; height: 100%; max-width: 450px; background: radial-gradient(circle, rgba(235,10,30,0.15) 0%, rgba(0,0,0,0) 70%); z-index: 0; border-radius: 50%;">
+                        </div>
+                        <img src="img/images/toyotaor.jpg" alt="Pièces d'origine Toyota" class="floating-img"
+                            loading="lazy">
                     </div>
                 </div>
             </div>
@@ -564,7 +608,8 @@
                     <div class="testimonial-track" id="testimonial-track">
                         <div class="testimonial-card glass-card">
                             <i class="fas fa-quote-left quote-icon"></i>
-                            <p class="testimonial-text">"La vérification par VIN m'a permis d'éviter une erreur coûteuse sur ma boîte de vitesses. Service exceptionnel !"</p>
+                            <p class="testimonial-text">"La vérification par VIN m'a permis d'éviter une erreur coûteuse
+                                sur ma boîte de vitesses. Service exceptionnel !"</p>
                             <div class="testimonial-author">
                                 <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
                                 <div>
@@ -575,7 +620,8 @@
                         </div>
                         <div class="testimonial-card glass-card">
                             <i class="fas fa-quote-left quote-icon"></i>
-                            <p class="testimonial-text">"Qualité premium pour les pièces Hyundai. Livraison super rapide sur Tunis. Je recommande vivement MotiveFlow."</p>
+                            <p class="testimonial-text">"Qualité premium pour les pièces Hyundai. Livraison super rapide
+                                sur Tunis. Je recommande vivement MotiveFlow."</p>
                             <div class="testimonial-author">
                                 <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
                                 <div>
@@ -586,7 +632,8 @@
                         </div>
                         <div class="testimonial-card glass-card">
                             <i class="fas fa-quote-left quote-icon"></i>
-                            <p class="testimonial-text">"Enfin une plateforme moderne et fiable pour trouver des pièces d'origine Toyota sans se déplacer."</p>
+                            <p class="testimonial-text">"Enfin une plateforme moderne et fiable pour trouver des pièces
+                                d'origine Toyota sans se déplacer."</p>
                             <div class="testimonial-author">
                                 <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
                                 <div>
@@ -659,6 +706,39 @@
             </div>
         </section>
 
+        <!-- ============================================================
+             LIVE PRODUCT CATALOG — Powered by Supabase
+             Cards are injected dynamically by js/supabase.js
+             ============================================================ -->
+        <section id="catalog" class="catalog section bg-alt">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2 class="section-title">Notre <span style="color: var(--primary-color);">Catalogue</span></h2>
+                    <p class="section-subtitle">Pièces d'origine et adaptables certifiées — disponibles immédiatement
+                    </p>
+                    <div class="title-underline"></div>
+                </div>
+
+                <!-- Category Filter Chips -->
+                <div class="chip-filter-container reveal-up">
+                    <ul class="chip-filter" id="catalog-filter" role="tablist" aria-label="Filtrer par catégorie">
+                        <li class="chip active" data-filter="all" role="tab" aria-selected="true">Tout</li>
+                        <li class="chip" data-filter="brakes" role="tab">Freinage</li>
+                        <li class="chip" data-filter="engine" role="tab">Moteur</li>
+                        <li class="chip" data-filter="suspension" role="tab">Suspension</li>
+                        <li class="chip" data-filter="electrical" role="tab">Électricité</li>
+                        <li class="chip" data-filter="filters" role="tab">Filtres</li>
+                    </ul>
+                </div>
+
+                <!-- Product Grid — populated by js/supabase.js -->
+                <div class="catalog-grid" id="catalog-grid" role="list" aria-live="polite"
+                    aria-label="Catalogue de pièces">
+                    <!-- Skeleton cards are rendered here by JS before real data arrives -->
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact" class="contact section">
             <div class="container">
@@ -666,6 +746,7 @@
                     <h2 class="section-title">Contact & Localisation</h2>
                     <div class="title-underline"></div>
                 </div>
+
 
                 <div class="contact-wrapper grid-2">
                     <div class="contact-info reveal-left">
@@ -689,6 +770,7 @@
                                     <p>contact@motiveflow.com</p>
                                 </div>
                             </div>
+                        </div>
 
                         <div class="social-links">
                             <a href="#" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -699,16 +781,16 @@
                         </div>
                     </div>
 
-                    <div class="contact-form-container reveal-right">
-                        <form class="contact-form" onsubmit="event.preventDefault();">
+                    <div class="contact-form-container reveal-right glass-card">
+                        <form id="contact-form" class="contact-form">
                             <div class="form-group">
                                 <label for="name">Nom / Voiture</label>
-                                <input type="text" id="name" class="form-control" placeholder="Votre nom ou société"
+                                <input type="text" id="name" name="’Motive_Flow" class="form-control" placeholder="Votre nom ou société"
                                     required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" class="form-control" placeholder="Votre Email" required>
+                                <input type="email" id="email" name="user_email" class="form-control" placeholder="Votre Email" required>
                             </div>
                             <div class="form-group">
                                 <label for="subject">Châssis (VIN) / Sujet</label>
@@ -717,11 +799,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea id="message" class="form-control" rows="5"
-                                    placeholder="Votre message ou liste de pièces..." required></textarea>
+                                <textarea id="message" name="message" class="form-control" rows="5"
+                                    placeholder="Comment يمكننا مساعدتك؟" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary submit-btn">
-                                Envoyer <i class="fas fa-paper-plane"></i>
+                                <span>Envoyer</span> <i class="fas fa-paper-plane"></i>
                             </button>
                         </form>
                     </div>
@@ -729,9 +811,9 @@
 
                 <!-- Leaflet Map Integration -->
                 <div class="map-container reveal-up">
-                    <div id="map" class="styled-map glass-card"></div>
+                        <div id="map" class="styled-map glass-card"></div>
+                    </div>
                 </div>
-            </div>
         </section>
     </main>
 
@@ -754,7 +836,8 @@
             <div class="footer-links">
                 <a href="#hero" class="back-to-top circular-progress" aria-label="Retour en haut">
                     <svg class="progress-ring" width="44" height="44">
-                        <circle class="progress-ring__circle" stroke="var(--primary-color)" stroke-width="4" fill="transparent" r="18" cx="22" cy="22"/>
+                        <circle class="progress-ring__circle" stroke="var(--primary-color)" stroke-width="4"
+                            fill="transparent" r="18" cx="22" cy="22" />
                     </svg>
                     <i class="fas fa-arrow-up"></i>
                 </a>
@@ -765,16 +848,27 @@
         </div>
     </footer>
 
-    <a href="#" class="whatsapp-floating-btn" id="whatsapp-btn" aria-label="Contactez-nous sur WhatsApp" title="WhatsApp">
+    <a href="#" class="whatsapp-floating-btn" id="whatsapp-btn" aria-label="Contactez-nous sur WhatsApp"
+        title="WhatsApp">
         <i class="fab fa-whatsapp"></i>
         <span class="whatsapp-tooltip">Contactez-nous</span>
     </a>
 
     <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    
-    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Supabase Integration Module (requires Supabase CDN loaded in <head>) -->
+    <script src="js/supabase.js"></script>
+
+    <!-- Main Application Script -->
     <script src="js/script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("9N-PfFoV3kCqGDZ6v");
+        })();
+    </script>
 </body>
 
 </html>
